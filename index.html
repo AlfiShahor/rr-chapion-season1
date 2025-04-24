@@ -1,1 +1,168 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rogue Reble Summer Championship 2025</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Agency FB bold;
+      background: #0a0a0a;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero {
+      background: linear-gradient(#0f0f0f, #1a1a1a);
+      padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #00f2ff;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #00f2ff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #00c2cc;
+    }
+
+    .details, .register {
+      padding: 2rem 1rem;
+      background: #121212;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background: #1f1f1f;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    form {
+      display: grid;
+      max-width: 600px;
+      margin: auto;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s ease;
+    }
+
+    input:focus, textarea:focus {
+      border: 2px solid #00f2ff;
+    }
+
+    .submit-btn {
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #00f2ff, #00c2cc);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00f2ff66;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>🔥 Rogue Reble Summer Championship 2025 🔥</h1>
+    <p>Join the ultimate Free Fire showdown of the summer!</p>
+    <p class="date">🗓️ July 10 - July 20, 2025</p>
+    <div class="countdown" id="countdown"></div>
+  </header>
+
+  <section class="details">
+    <h2>Tournament Details</h2>
+    <ul>
+      <li>💰 Prize Pool: <b>BDT 5,000+</b></li>
+      <li>🎮 Game: Free Fire (FULL MAP)</li>
+      <li>📍 Mode: Squad (4)</li>
+      <li>🎥 Live on: YouTube & Facebook</li>
+    </ul>
+  </section>
+
+  <section id="register" class="register">
+    <h2>Team Registration</h2>
+    <form id="registerForm">
+      <input type="text" name="teamName" placeholder="Team Name" required />
+      <input type="text" name="leaderName" placeholder="Leader Name" required />
+      <input type="email" name="email" placeholder="Contact Email" required />
+      <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required />
+      <input type="text" name="player1" placeholder="Player 1 IGN" required />
+      <input type="text" name="player2" placeholder="Player 2 IGN" required />
+      <input type="text" name="player3" placeholder="Player 3 IGN" required />
+      <input type="text" name="player4" placeholder="Player 4 IGN" required />
+      <input type="text" name="uid" placeholder="Team UID (optional)" />
+      <button type="submit" class="submit-btn">Submit Registration</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Rogue Reble | Need help? <a href="mailto:roguereble.esports@outlook.com">Contact Support</a></p>
+  </footer>
+
+  <script>
+    
+
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/macros/s/AKfycbzidmJu7pH7NV0ha-gfgtkVj96TGBV6fSElZLZDLTb39B7nbPbg0gWPG42o6RfOS4ih/exec", {
+        method: "POST",
+        body: data,
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === "success") {
+          document.body.innerHTML = `
+            <div style="padding: 50px; text-align: center; font-size: 1.5rem;">
+              <h1 style="color: #00f2ff;">✅ Registration Complete!</h1>
+              <p>Thanks for joining the Rogue Reble Summer Championship 2025.</p>
+              <p>Check your email for confirmation details.</p>
+              <a href="https://www.facebook.com/roguereble" style="margin-top: 20px; display: inline-block; background: #00f2ff; color: #000; padding: 10px 20px; border-radius: 8px; text-decoration: none;">Back to Home</a>
+            </div>
+          `;
+        } else {
+          alert("Submission failed: " + res.message);
+        }
+      })
+      .catch((err) => {
+        alert("An error occurred. Please try again later.");
+        console.error(err);
+      });
+    });
+  </script>
+</body>
+</html>
